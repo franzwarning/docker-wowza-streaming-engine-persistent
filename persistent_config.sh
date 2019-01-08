@@ -23,6 +23,9 @@ rewire_wowza() {
 
   rm -rf /usr/local/WowzaStreamingEngine/stats
   ln -sf ${WSE_DATA_DIR}/stats /usr/local/WowzaStreamingEngine/stats
+  
+  rm -rf /usr/local/WowzaStreamingEngine/lib
+  ln -sf ${WSE_DATA_DIR}/lib /usr/local/WowzaStreamingEngine/lib
 }
 
 initialize_log_dir() {
@@ -59,6 +62,7 @@ initialize_data_dir() {
     [[ ! -d ${WSE_DATA_DIR}/content ]]      && cp -a /usr/local/WowzaStreamingEngine/content ${WSE_DATA_DIR}/content
     [[ ! -d ${WSE_DATA_DIR}/backup ]]       && cp -a /usr/local/WowzaStreamingEngine/backup ${WSE_DATA_DIR}/backup
     [[ ! -d ${WSE_DATA_DIR}/applications ]] && cp -a /usr/local/WowzaStreamingEngine/applications ${WSE_DATA_DIR}/applications
+    [[ ! -d ${WSE_DATA_DIR}/lib ]]          && cp -a /usr/local/WowzaStreamingEngine/lib ${WSE_DATA_DIR}/lib
     [[ ! -d ${WSE_DATA_DIR}/stats ]]        && mkdir -p ${WSE_DATA_DIR}/stats
     touch ${WSE_DATA_DIR}/.firstrun
   fi
